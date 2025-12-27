@@ -21,6 +21,15 @@ export interface Appointment {
   created_at: string;
 }
 
+export interface Prescription {
+  id: string;
+  user_id: string;
+  file_name: string;
+  file_path: string;
+  file_size: number | null;
+  uploaded_at: string;
+}
+
 export interface AuthContextType {
   user: User | null;
   isLoading: boolean;

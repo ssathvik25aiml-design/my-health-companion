@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
-import { LogOut, Heart, LayoutDashboard, Pill, Calendar } from 'lucide-react';
+import { LogOut, Heart, LayoutDashboard, Pill, Calendar, FileText } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { user, logout } = useAuth();
@@ -12,6 +12,7 @@ const Header: React.FC = () => {
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { path: '/medicines', label: 'Medicines', icon: Pill },
     { path: '/appointments', label: 'Appointments', icon: Calendar },
+    { path: '/prescriptions', label: 'Prescriptions', icon: FileText },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -26,7 +27,7 @@ const Header: React.FC = () => {
           <span className="text-xl font-semibold text-foreground">CareCrew</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map(({ path, label, icon: Icon }) => (
             <Link key={path} to={path}>
               <Button
@@ -53,17 +54,17 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile navigation */}
-      <nav className="flex border-t border-border md:hidden">
+      <nav className="flex border-t border-border lg:hidden overflow-x-auto">
         {navItems.map(({ path, label, icon: Icon }) => (
-          <Link key={path} to={path} className="flex-1">
+          <Link key={path} to={path} className="flex-1 min-w-0">
             <Button
               variant="ghost"
-              className={`w-full rounded-none gap-2 ${
+              className={`w-full rounded-none gap-1 px-2 ${
                 isActive(path) ? 'bg-accent text-accent-foreground' : ''
               }`}
             >
-              <Icon className="h-4 w-4" />
-              <span className="text-xs">{label}</span>
+              <Icon className="h-4 w-4 shrink-0" />
+              <span className="text-xs truncate">{label}</span>
             </Button>
           </Link>
         ))}
