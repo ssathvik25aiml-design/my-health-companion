@@ -4,7 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Pill, Calendar, ArrowRight, User, Shield } from 'lucide-react';
+import { Pill, Calendar, FileText, ArrowRight, User, Shield } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
@@ -23,6 +23,13 @@ const Dashboard: React.FC = () => {
       icon: Calendar,
       path: '/appointments',
       color: 'bg-success/10 text-success',
+    },
+    {
+      title: 'Prescriptions',
+      description: 'Store and access your prescriptions digitally',
+      icon: FileText,
+      path: '/prescriptions',
+      color: 'bg-warning/10 text-warning',
     },
   ];
 
@@ -59,7 +66,7 @@ const Dashboard: React.FC = () => {
         </Card>
 
         {/* Feature Cards */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map(({ title, description, icon: Icon, path, color }, index) => (
             <Card 
               key={title} 
@@ -88,7 +95,7 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* Info Section */}
-        <div className="mt-8 rounded-lg bg-accent/50 p-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <div className="mt-8 rounded-lg bg-accent/50 p-6 animate-fade-in" style={{ animationDelay: '0.5s' }}>
           <h3 className="font-semibold text-foreground">Your Data is Secure</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             All your health information is stored securely and is only accessible by you. 
