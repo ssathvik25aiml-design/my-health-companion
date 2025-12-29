@@ -62,7 +62,7 @@ The focus of this project is **learning application structure, understanding int
 
 ## 📸 Screenshots / Demo
 
-(Add screenshots or demo GIF here)
+
 
 ---
 
