@@ -58,13 +58,7 @@ The focus of this project is **learning application structure, understanding int
 - AI-based health insights and suggestions
 - Deployment with live demo access
 
----
 
-## 📸 Screenshots / Demo
-
-
-
----
 
 ## ⚠️ Disclaimer
 
